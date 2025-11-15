@@ -21,15 +21,20 @@ import java.util.UUID;
 @AllArgsConstructor
 public class PatientCreateDTO
 {
-
+    @NotBlank(message = "Name should not be Empty")
     private String name;
 
+    @NotNull
+    @Email(message = "Provide a correct Email")
     private String email;
 
+    @NotBlank(message = "Empty Address not Allowed")
     private String address;
 
+    @NotNull(message = "Empty Birth Date not Allowed")
     private LocalDate dateofBirth;
 
+    @NotNull(groups = PatientUpdateGroup.class, message = "Registered Date Should'nt be empty")
     private LocalDate registeredDate;
 
 }

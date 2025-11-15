@@ -5,40 +5,54 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f261b5a-1d81-48c8-b0ef-f6698c657b8d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/patient-service/PatientServiceNotes.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/ps/patientservice/controller/PatientController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/ps/patientservice/dto/PatientCreateDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/ps/patientservice/dto/PatientDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/ps/patientservice/mapper/PatientMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/ps/patientservice/repository/PatientRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/ps/patientservice/service/PatientService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/patient-service/src/main/resources/data.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/API-Requests/CreatePatient.http" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/API-Requests/GetAllPatients.http" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/API-Requests/UpdatePatient.http" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/ps/patientservice/exception/EmailAreadyExistsException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/ps/patientservice/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/ps/patientservice/exception/PatientNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient-service/PatientServiceNotes.md" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/PatientServiceNotes.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient-service/src/main/java/com/ps/patientservice/controller/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/ps/patientservice/controller/PatientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient-service/src/main/java/com/ps/patientservice/dto/PatientCreateDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/ps/patientservice/dto/PatientCreateDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient-service/src/main/java/com/ps/patientservice/dto/PatientDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/ps/patientservice/dto/PatientDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient-service/src/main/java/com/ps/patientservice/mapper/PatientMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/ps/patientservice/mapper/PatientMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient-service/src/main/java/com/ps/patientservice/repository/PatientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/ps/patientservice/repository/PatientRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient-service/src/main/java/com/ps/patientservice/service/PatientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/ps/patientservice/service/PatientService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DarkyenusTimeTracker">
+    <option name="totalTimeSeconds" value="7153" />
+    <option name="gitIntegration" value="true" />
+    <option name="naggedAbout" value="1" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Exception" />
+        <option value="HTTP Request" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 6
-}]]></component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="35TrQHTAYHqdYsuRgV0qA9BJ3AP" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -46,14 +60,21 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "HTTP Request.CreatePatient | GET request to example server.executor": "Run",
+    "HTTP Request.CreatePatient | Post Update Request.executor": "Run",
+    "HTTP Request.GetAllPatients | GET request to Fetch All Patients.executor": "Run",
+    "HTTP Request.GetAllPatients | GET request to example server.executor": "Run",
+    "HTTP Request.UpdatePatient | Put Update Request.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "Spring Boot.PatientServiceApplication.executor": "Debug",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.PatientServiceApplication.executor": "Run",
     "git-widget-placeholder": "main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -67,7 +88,19 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Spring Boot.PatientServiceApplication">
+    <configuration name="CreatePatient | GET request to example server" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/API-Requests/CreatePatient.http" executionIdentifier="GET request to example server" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="CreatePatient | Post Update Request" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/API-Requests/CreatePatient.http" executionIdentifier="Post Update Request" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="GetAllPatients | GET request to Fetch All Patients" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/API-Requests/GetAllPatients.http" executionIdentifier="GET request to Fetch All Patients" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="UpdatePatient | Put Update Request" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/API-Requests/UpdatePatient.http" executionIdentifier="Put Update Request" runType="Run single request">
+      <method v="2" />
+    </configuration>
     <configuration name="PatientServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="patient-service" />
@@ -76,6 +109,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="HTTP Request.UpdatePatient | Put Update Request" />
+        <item itemvalue="HTTP Request.CreatePatient | Post Update Request" />
+        <item itemvalue="HTTP Request.GetAllPatients | GET request to Fetch All Patients" />
+        <item itemvalue="HTTP Request.CreatePatient | GET request to example server" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -92,7 +133,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1763144889521</updated>
-      <workItem from="1763144896417" duration="4339000" />
+      <workItem from="1763144896417" duration="5627000" />
+      <workItem from="1763194490837" duration="11930000" />
     </task>
     <servers />
   </component>
@@ -104,8 +146,8 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/patient-service/src/main/java/com/ps/patientservice/service/PatientService.java</url>
-          <line>31</line>
-          <option name="timeStamp" value="3" />
+          <line>62</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

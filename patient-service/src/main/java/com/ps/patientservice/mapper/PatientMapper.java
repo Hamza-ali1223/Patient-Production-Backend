@@ -54,6 +54,7 @@ public class PatientMapper
     public static final PatientDTO toDTO(Patient p)
     {
         return PatientDTO.builder()
+                .id(p.getId().toString())
                 .name(p.getName())
                 .email(p.getEmail())
                 .dateofBirth(p.getDateofBirth().toString())

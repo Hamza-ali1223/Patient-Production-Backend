@@ -1,5 +1,9 @@
 package com.ps.patientservice.service;
 
+import com.ps.patientservice.dto.PatientCreateDTO;
+import com.ps.patientservice.dto.PatientDTO;
+import com.ps.patientservice.exception.EmailAreadyExistsException;
+import com.ps.patientservice.exception.PatientNotFoundException;
 import com.ps.patientservice.model.Patient;
 import com.ps.patientservice.repository.PatientRepository;
 import org.springframework.stereotype.Service;
@@ -29,6 +33,10 @@ public class PatientService
 
     public Patient savePatient(Patient patient)
     {
+        if(patientRepository.existsPatientByEmail(patient.getEmail()))
+        {
+            throw new EmailAreadyExistsException("A Patient with this Email: "+patient.getEmail()+" exists.");
+        }
         return patientRepository.save(patient);
     }
 
@@ -41,6 +49,24 @@ public class PatientService
         }
         return false;
     }
+
+    public Patient updatePatient(UUID id, PatientCreateDTO dto) {
+
+        Patient existing = patientRepository.findById(id)
+                .orElseThrow(() -> new PatientNotFoundException("Patient not found with Id: "+id.toString()));
+
+        // Update allowed fields
+        existing.setName(dto.getName());
+        existing.setEmail(dto.getEmail());
+        existing.setAddress(dto.getAddress());
+        existing.setDateofBirth(dto.getDateofBirth());
+       if(dto.getRegisteredDate()!=null)
+           existing.setRegisteredDate(dto.getRegisteredDate());
+
+        return patientRepository.save(existing);
+    }
+
+
 
 
 

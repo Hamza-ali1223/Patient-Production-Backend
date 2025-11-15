@@ -1,0 +1,11 @@
+### Put Update Request
+PUT http://localhost:8000/patients/0a65c53e-09e8-4df0-8d76-7b1d0059635e
+Content-Type: application/json
+
+{
+  "name": "Abdul Wali Dal",
+  "address": "Sindh, PK",
+  "dateofBirth": "2005-09-06",
+  "email": "saira21perveen@gmail.com"
+
+}
