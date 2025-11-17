@@ -5,23 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f261b5a-1d81-48c8-b0ef-f6698c657b8d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/API-Requests/CreatePatient.http" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API-Requests/GetAllPatients.http" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API-Requests/UpdatePatient.http" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/ps/patientservice/exception/EmailAreadyExistsException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/ps/patientservice/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/ps/patientservice/exception/PatientNotFoundException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patient-service/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API-Requests/CreatePatient.http" beforeDir="false" afterPath="$PROJECT_DIR$/API-Requests/CreatePatient.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API-Requests/GetAllPatients.http" beforeDir="false" afterPath="$PROJECT_DIR$/API-Requests/GetAllPatients.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API-Requests/UpdatePatient.http" beforeDir="false" afterPath="$PROJECT_DIR$/API-Requests/UpdatePatient.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/patient-service/PatientServiceNotes.md" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/PatientServiceNotes.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient-service/src/main/java/com/ps/patientservice/controller/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/ps/patientservice/controller/PatientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient-service/src/main/java/com/ps/patientservice/dto/PatientCreateDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/ps/patientservice/dto/PatientCreateDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient-service/src/main/java/com/ps/patientservice/dto/PatientDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/ps/patientservice/dto/PatientDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient-service/src/main/java/com/ps/patientservice/mapper/PatientMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/ps/patientservice/mapper/PatientMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient-service/src/main/java/com/ps/patientservice/repository/PatientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/ps/patientservice/repository/PatientRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient-service/src/main/java/com/ps/patientservice/service/PatientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/ps/patientservice/service/PatientService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/patient-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient-service/src/main/resources/data.sql" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +21,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="DarkyenusTimeTracker">
-    <option name="totalTimeSeconds" value="7153" />
+    <option name="totalTimeSeconds" value="14606" />
     <option name="gitIntegration" value="true" />
     <option name="naggedAbout" value="1" />
   </component>
@@ -39,6 +31,7 @@
         <option value="Class" />
         <option value="Exception" />
         <option value="HTTP Request" />
+        <option value="Dockerfile" />
       </list>
     </option>
   </component>
@@ -60,12 +53,16 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Docker.patient-service-db.executor": "Run",
+    "Docker.patient-service.executor": "Run",
     "HTTP Request.CreatePatient | GET request to example server.executor": "Run",
     "HTTP Request.CreatePatient | Post Update Request.executor": "Run",
     "HTTP Request.GetAllPatients | GET request to Fetch All Patients.executor": "Run",
     "HTTP Request.GetAllPatients | GET request to example server.executor": "Run",
     "HTTP Request.UpdatePatient | Put Update Request.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Notification.DisplayName-DoNotAsk-DatabaseConfigFileWatcher.found": "Database connection parameters found",
+    "Notification.DoNotAsk-DatabaseConfigFileWatcher.found": "true",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -86,9 +83,14 @@
     "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
   }
 }]]></component>
-  <component name="RunManager" selected="Spring Boot.PatientServiceApplication">
+  <component name="RunManager" selected="Docker.patient-service">
     <configuration name="CreatePatient | GET request to example server" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/API-Requests/CreatePatient.http" executionIdentifier="GET request to example server" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -109,11 +111,117 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="patient-service-db" type="docker-deploy" factoryName="docker-image" server-name="Docker">
+      <deployment type="docker-image">
+        <settings>
+          <option name="imageTag" value="postgres:latest" />
+          <option name="containerName" value="patient-service-db" />
+          <option name="envVars">
+            <list>
+              <DockerEnvVarImpl>
+                <option name="name" value="POSTGRES_USER" />
+                <option name="value" value="root" />
+              </DockerEnvVarImpl>
+              <DockerEnvVarImpl>
+                <option name="name" value="POSTGRES_PASSWORD" />
+                <option name="value" value="root" />
+              </DockerEnvVarImpl>
+              <DockerEnvVarImpl>
+                <option name="name" value="POSTGRES_DB" />
+                <option name="value" value="patient-db" />
+              </DockerEnvVarImpl>
+            </list>
+          </option>
+          <option name="portBindings">
+            <list>
+              <DockerPortBindingImpl>
+                <option name="containerPort" value="5432" />
+                <option name="hostPort" value="5432" />
+              </DockerPortBindingImpl>
+            </list>
+          </option>
+          <option name="commandLineOptions" value="--network internal " />
+          <option name="volumeBindings">
+            <list>
+              <DockerVolumeBindingImpl>
+                <option name="containerPath" value="/var/lib/postgresql" />
+                <option name="hostPath" value="C:\DockerDB_Volumes" />
+              </DockerVolumeBindingImpl>
+            </list>
+          </option>
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="patient-service" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="imageTag" value="patient-service:latest" />
+          <option name="containerName" value="patient-service" />
+          <option name="envVars">
+            <list>
+              <DockerEnvVarImpl>
+                <option name="name" value="SPRING_DATASOURCE_PASSWORD" />
+                <option name="value" value="root" />
+              </DockerEnvVarImpl>
+              <DockerEnvVarImpl>
+                <option name="name" value="SPRING_DATASOURCE_URL" />
+                <option name="value" value="jdbc:postgresql://patient-service-db:5432/patient-db" />
+              </DockerEnvVarImpl>
+              <DockerEnvVarImpl>
+                <option name="name" value="SPRING_DATASOURCE_USERNAME" />
+                <option name="value" value="root" />
+              </DockerEnvVarImpl>
+              <DockerEnvVarImpl>
+                <option name="name" value="SPRING_JPA_HIBERNATE_DDL_AUTO" />
+                <option name="value" value="update" />
+              </DockerEnvVarImpl>
+              <DockerEnvVarImpl>
+                <option name="name" value="SPRING_JPA_SHOW_SQL" />
+                <option name="value" value="true" />
+              </DockerEnvVarImpl>
+              <DockerEnvVarImpl>
+                <option name="name" value="SPRING_SQL_INIT_MODE" />
+                <option name="value" value="always" />
+              </DockerEnvVarImpl>
+            </list>
+          </option>
+          <option name="portBindings">
+            <list>
+              <DockerPortBindingImpl>
+                <option name="containerPort" value="4000" />
+                <option name="hostPort" value="4000" />
+              </DockerPortBindingImpl>
+            </list>
+          </option>
+          <option name="commandLineOptions" value="--network internal" />
+          <option name="sourceFilePath" value="patient-service/Dockerfile" />
+          <option name="volumeBindings">
+            <list>
+              <DockerVolumeBindingImpl>
+                <option name="containerPath" value="/root/.m2" />
+                <option name="hostPath" value="C:\Users\Admin\.m2" />
+              </DockerVolumeBindingImpl>
+            </list>
+          </option>
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Docker.patient-service-db" />
+      <item itemvalue="Docker.patient-service" />
+      <item itemvalue="HTTP Request.CreatePatient | GET request to example server" />
+      <item itemvalue="HTTP Request.CreatePatient | Post Update Request" />
+      <item itemvalue="HTTP Request.GetAllPatients | GET request to Fetch All Patients" />
+      <item itemvalue="HTTP Request.UpdatePatient | Put Update Request" />
+      <item itemvalue="Spring Boot.PatientServiceApplication" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP Request.UpdatePatient | Put Update Request" />
-        <item itemvalue="HTTP Request.CreatePatient | Post Update Request" />
         <item itemvalue="HTTP Request.GetAllPatients | GET request to Fetch All Patients" />
+        <item itemvalue="HTTP Request.CreatePatient | Post Update Request" />
+        <item itemvalue="HTTP Request.UpdatePatient | Put Update Request" />
         <item itemvalue="HTTP Request.CreatePatient | GET request to example server" />
       </list>
     </recent_temporary>
@@ -134,12 +242,16 @@
       <option name="presentableId" value="Default" />
       <updated>1763144889521</updated>
       <workItem from="1763144896417" duration="5627000" />
-      <workItem from="1763194490837" duration="11930000" />
+      <workItem from="1763194490837" duration="12107000" />
+      <workItem from="1763393379114" duration="12971000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

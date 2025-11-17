@@ -751,3 +751,253 @@ Swagger is now a source of truth for my microservice — not just an accidental 
 
 
 
+# 🌟 **Tip 07: Fixing Slow Docker Builds by Caching Maven `.m2` Directory — Including the Maven ARG Explanation**
+
+### 🔍 **What Issue I Faced**
+
+When building my Spring Boot microservice in Docker, Maven downloaded all dependencies *every single time*.
+The slowest step was:
+
+```
+RUN mvn -B dependency:go-offline
+```
+
+This caused Docker to fetch hundreds of jars repeatedly, even though my machine already had them in my local `.m2` repo.
+
+This made my Docker builds painfully slow.
+
+---
+
+### ❌ **What Didn’t Work**
+
+* Rebuilding the image without cache
+* Running `dependency:go-offline` alone
+* Using multi-stage builds without any cache
+* Reordering COPY steps
+
+Nothing prevented Docker from re-downloading everything.
+
+---
+
+### 🛠️ **What Actually Fixed It: Mounting Local `.m2` Into Docker**
+
+By mounting the host `.m2` directory into the Docker build container:
+
+```
+C:\Users\Admin\.m2  →  /root/.m2
+```
+
+Docker could now **reuse** all previously downloaded dependencies.
+
+### **The working build command:**
+
+```
+docker build -t patient-service -v C:\Users\Admin\.m2:/root/.m2 .
+```
+
+✔ First build downloads missing stuff
+✔ Second build uses CACHED layers
+✔ New dependencies download only once
+✔ All microservices can reuse the same cache
+
+This instantly cut build times from *minutes* to a few seconds.
+
+---
+
+# 🧩 **The Missing Part (Important!): What is `ARG MAVEN_CONFIG=/root/.m2` and Why It’s in the Dockerfile?**
+
+In my Dockerfile, I added:
+
+```dockerfile
+ARG MAVEN_CONFIG=/root/.m2
+```
+
+### ✔ **What this does:**
+
+It tells Maven INSIDE the Docker container:
+
+> “Your Maven home (where you store dependencies) is `/root/.m2`.”
+
+This is **critical** because:
+
+* Maven Docker images run as **root**
+* Root’s home directory is `/root`
+* Maven expects its local repository at:
+  `/root/.m2/repository`
+* I am mounting my host `.m2` exactly to `/root/.m2`
+
+So the ARG ensures:
+
+### 🔵 Maven inside the container outputs/downloads deps to:
+
+`/root/.m2`
+
+### 🔵 And Docker bind-mount attaches:
+
+`C:\Users\Admin\.m2  →  /root/.m2`
+
+This makes both sides **perfectly aligned**.
+
+Without this ARG:
+
+* Maven might use a different default location
+* The bind mount wouldn't match the Maven repo path
+* Dependencies could still be re-downloaded
+* Caching wouldn't work properly
+
+This ARG ensures the **path that Maven uses = the path I mount**.
+
+---
+
+### ✔ Why is it an ARG instead of ENV?
+
+Because:
+
+* It is used only *during build*
+* Maven needs it before running commands like `dependency:go-offline`
+* Environment variables vary across builders/runners
+  but `ARG` ensures correctness at build time
+
+---
+
+# 🔥 The Final Working Dockerfile Lines (for reference)
+
+```dockerfile
+COPY pom.xml .
+
+ARG MAVEN_CONFIG=/root/.m2
+
+RUN mvn -B dependency:go-offline
+```
+
+These three lines together:
+
+1. COPY pom.xml → enables Docker layer caching
+2. ARG MAVEN_CONFIG=/root/.m2 → tells Maven where the repo is
+3. RUN mvn dependency:go-offline → fetches deps into mounted `.m2`
+
+This combination + volume mount = **FAST builds**.
+
+---
+
+# 🎯 **TLDR (What I Must Remember)**
+
+* Docker’s Maven must use `/root/.m2`
+* My host `.m2` must mount into `/root/.m2`
+* The ARG `MAVEN_CONFIG=/root/.m2` ensures Maven uses the correct folder
+* This alignment is what enables FULL caching
+* Every microservice can reuse the exact same `.m2`
+
+---
+
+
+# 🌟 **Tip 08: How Spring Boot Overrides `application.properties` Using Environment Variables**
+
+### 🔍 **What I Wanted to Understand**
+
+When using Docker, Kubernetes, or `.env` files, I wanted to know:
+
+> “How do environment variables override my `application.properties`?”
+
+Especially for things like:
+
+* `spring.jpa.hibernate.ddl-auto`
+* `spring.datasource.url`
+* `spring.jpa.show-sql`
+* `server.port`
+
+And how they translate into the equivalent property key format.
+
+---
+
+### 🧠 **How Spring Translates Environment Variables**
+
+Spring Boot follows a predictable rule:
+
+```
+application.properties key → UPPERCASE + UNDERSCORES
+```
+
+Examples:
+
+| application.properties key    | Environment variable          |
+| ----------------------------- | ----------------------------- |
+| spring.jpa.hibernate.ddl-auto | SPRING_JPA_HIBERNATE_DDL_AUTO |
+| spring.datasource.url         | SPRING_DATASOURCE_URL         |
+| server.port                   | SERVER_PORT                   |
+| spring.jpa.show-sql           | SPRING_JPA_SHOW_SQL           |
+| spring.datasource.username    | SPRING_DATASOURCE_USERNAME    |
+
+Spring Boot automatically:
+
+* uppercases the key
+* replaces `.` with `_`
+* replaces `-` with `_`
+
+---
+
+### 📌 **Real Example: Overriding ddl-auto via Docker**
+
+If I want:
+
+```
+spring.jpa.hibernate.ddl-auto=create
+```
+
+I can override it in Docker using:
+
+```
+-e SPRING_JPA_HIBERNATE_DDL_AUTO=create
+```
+
+Or in docker-compose:
+
+```yaml
+environment:
+  SPRING_JPA_HIBERNATE_DDL_AUTO: update
+```
+
+---
+
+### ✔️ **Priority Order (Who Wins?)**
+
+Spring Boot property order:
+
+1. **Command-line args**
+2. **Environment variables**
+3. **application.properties**
+4. **application.yml**
+5. **profile-specific properties**
+6. **default values**
+
+This means:
+
+> Environment variables always override your `application.properties`.
+
+---
+
+### 🛠️ **What I Should Do in Future**
+
+If I want to configure anything differently between environments:
+
+* Local → set it in `application.properties`
+* Docker → override using ENV variables
+* Kubernetes → override using ConfigMaps / Secrets
+* CI/CD → inject through pipeline environment variables
+
+Always convert the key into the uppercase underscore version.
+
+---
+
+### 🎯 **TLDR Summary**
+
+> Spring Boot environment variables override application properties by transforming keys into uppercase underscore format.
+> These environment variables ALWAYS take priority over your `application.properties`.
+
+---
+
+If you want, I can also write
+**Tip 09: Best practices for Dockerizing Microservices** or
+**Tip 10: How to structure multi-service Docker Compose files**.
+
+
